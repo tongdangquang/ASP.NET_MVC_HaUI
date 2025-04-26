@@ -1,0 +1,86 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cau1</title>
+    <style>
+        table{
+            width: 400px;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+        td{
+            padding: 5px;
+        }
+        table, td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+@{
+    string manv = "", hoten = "", donvi = "";
+    double luongngay = 0, songay = 0, thunhap = 0;
+    if (IsPost)
+    {
+        try
+        {
+            manv = Request["manv"];
+            hoten = Request["hoten"];
+            donvi = Request["donvi"];
+            luongngay = double.Parse(Request["luongngay"]);
+            songay = double.Parse(Request["songay"]);
+
+            thunhap = (songay >= 25) ? (luongngay * songay + 500000) : (luongngay * songay);
+        }
+        catch
+        {
+            ViewBag.msg = "Vui lòng nhập đúng dữ liệu!";
+        }
+    }
+}
+<body>
+    <form action="/" method="post">
+        <table>
+            <tr>
+                <td>Mã nhân viên: </td>
+                <td><input type="text" name="manv" value="@manv" /></td>
+            </tr>
+            <tr>
+                <td>Họ tên: </td>
+                <td><input type="text" name="hoten" value="@hoten" /></td>
+            </tr>
+            <tr>
+                <td>Đơn vị: </td>
+                <td>
+                    <select name="donvi">
+                        <option @(donvi == "Phòng tổ chức" ? "selected" : "")>Phòng tổ chức</option>
+                        <option @(donvi == "Phòng kinh doanh" ? "selected" : "")>Phòng kinh doanh</option>
+                        <option @(donvi == "Phòng kỹ thuật" ? "selected" : "")>Phòng kỹ thuật</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Lương ngày: </td>
+                <td><input type="text" name="luongngay" value="@(luongngay == 0 ? "" : luongngay.ToString("N0"))" /></td>
+            </tr>
+            <tr>
+                <td>Số ngày: </td>
+                <td><input type="text" name="songay" value="@(songay == 0 ? "" : songay.ToString("N0"))" /></td>
+            </tr>
+            <tr>
+                <td>Thu nhập: </td>
+                <td><input type="tel" name="thunhap" value="@(thunhap == 0 ? "" : thunhap.ToString("N0"))" readonly="readonly" /> </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" value="TÍNH" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

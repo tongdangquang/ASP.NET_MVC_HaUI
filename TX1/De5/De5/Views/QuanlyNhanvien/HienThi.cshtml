@@ -1,0 +1,66 @@
+﻿@model  IEnumerable<De5.Models.Nhanvien>
+@{
+    ViewBag.Title = "HienThi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    table{
+        width: 700px;
+    }
+</style>
+
+<table>
+    <tr>
+        <th colspan="6">DANH SÁCH NHÂN VIÊN CÓ SỐ NGÀY LÀM < 20</th>
+    </tr>
+    <tr>
+        <th>Mã nhân viên</th>
+        <th>Họ tên</th>
+        <th>Địa chỉ</th>
+        <th>Số ngày làm</th>
+        <th>Lương ngày</th>
+        <th>Tiền lương</th>
+    </tr>
+    @foreach (De5.Models.Nhanvien i in Model)
+    {
+        //if (i.songaylam < 20)
+        //{
+            <tr>
+                <td>@i.manv</td>
+                <td>@i.hoten</td>
+                <td>@i.diachi</td>
+                <td>@i.songaylam</td>
+                <td>@i.luongngay</td>
+                <td>@i.tienluong</td>
+            </tr>
+        @*}*@
+    }
+</table>
+
+@*<table>
+    <tr>
+        <th colspan="6">DANH SÁCH NHÂN VIÊN CÓ LUONG NGÀY > 190000</th>
+    </tr>
+    <tr>
+        <th>Mã nhân viên</th>
+        <th>Họ tên</th>
+        <th>Địa chỉ</th>
+        <th>Số ngày làm</th>
+        <th>Lương ngày</th>
+        <th>Tiền lương</th>
+    </tr>
+    @foreach (De5.Models.Nhanvien i in Model)
+    {
+        if (i.luongngay > 190000)
+        {
+            <tr>
+                <td>@i.manv</td>
+                <td>@i.hoten</td>
+                <td>@i.diachi</td>
+                <td>@i.songaylam</td>
+                <td>@i.luongngay</td>
+                <td>@i.tienluong</td>
+            </tr>
+        }
+    }
+</table>*@

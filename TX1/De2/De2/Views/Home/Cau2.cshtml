@@ -1,0 +1,80 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cau2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin: 10px auto;
+        }
+
+        table, td {
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>@Html.Label("Mã sản phẩm: ")</td>
+                <td>
+                    @Html.TextBox("masp", "", new { @class = "form-control", style = "width: 100px;" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Tên sản phẩm: ")</td>
+                <td>
+                    @Html.TextBox("tensp", "", new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Loại sản phẩm: ")</td>
+                <td>
+                    @Html.DropDownList("loaisp", new List<SelectListItem>
+                   {
+                       new SelectListItem {Text = "Nông sản", Value = "Nông sản"},
+                       new SelectListItem {Text = "Hải sản", Value = "Hải sản"},
+                       new SelectListItem {Text = "Đồ uống", Value = "Đồ uống"}
+                   }, new {@class = "form-control"})
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Số lượng: ")</td>
+                <td>
+                    @Html.TextBox("soluong", "", new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Đơn giá: ")</td>
+                <td>
+                    @Html.TextBox("dongia", "", new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Thành tiền: ")</td>
+                <td>
+                    @Html.TextBox("thanhtien", "", new { @class = "form-control", @readonly = "true"})
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <input type="submit" value="TÍNH" formaction="/Home/Ketqua"/>
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+</html>

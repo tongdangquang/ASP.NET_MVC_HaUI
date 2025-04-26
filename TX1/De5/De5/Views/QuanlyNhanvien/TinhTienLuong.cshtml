@@ -1,0 +1,42 @@
+﻿@model De5.Models.Nhanvien
+@{
+    ViewBag.Title = "TinhTienLuong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table {
+        width: 300px;
+    }
+</style>
+
+<table>
+    <tr>
+        <th colspan="2">THÔNG TIN NHÂN VIÊN VỪA NHẬP</th>
+    </tr>
+    <tr>
+        <td>Mã nhân viên:</td>
+        <td>@Model.manv</td>
+    </tr>
+    <tr>
+        <td>Họ tên:</td>
+        <td>@Model.hoten</td>
+    </tr>
+    <tr>
+        <td>Địa chỉ:</td>
+        <td>@Model.diachi</td>
+    </tr>
+    <tr>
+        <td>Số ngày làm:</td>
+        <td>@Model.songaylam</td>
+    </tr>
+    <tr>
+        <td>Lương ngày:</td>
+        <td>@Model.luongngay</td>
+    </tr>
+    <tr>
+        <td>Tiền lương: </td>
+        <td>@Model.tienluong</td>
+    </tr>
+</table>
+

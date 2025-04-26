@@ -1,0 +1,34 @@
+﻿@model De6.Models.Hocsinh
+@{
+    ViewBag.Title = "Xuat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table style="width: 400px;">
+    <tr>
+        <th colspan="2">THÔNG TIN HỌC SINH</th>
+    </tr>
+    <tr>
+        <td>Mã học sinh:</td>
+        <td>@Model.mahs</td>
+    </tr>
+    <tr>
+        <td>Họ tên:</td>
+        <td>@Model.hoten</td>
+    </tr>
+    <tr>
+        <td>Giới tính:</td>
+        <td>@Model.gioitinh</td>
+    <tr>
+        <td>Học lớp:</td>
+        <td>@Model.hoclop</td>
+    </tr>
+    <tr>
+        <td>Điểm:</td>
+        <td>@Model.diem</td>
+    </tr>
+    <tr>
+        <td>Kết quả:</td>
+        <td>@Model.ketqua</td>
+    </tr>
+</table>

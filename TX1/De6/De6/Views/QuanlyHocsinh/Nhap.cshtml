@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Nhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <table style="width: 400px;">
+        <tr>
+            <th colspan="2">NHẬP THÔNG TIN HỌC SINHS</th>
+        </tr>
+        <tr>
+            <td>@Html.Label("Mã học sinh: ")</td>
+            <td>@Html.TextBox("mahs", "", new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Họ tên: ")</td>
+            <td>@Html.TextBox("hoten", "", new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Giới tính: ")</td>
+            <td>
+                @Html.RadioButton("gioitinh", "Nam", new { @class = "form-control", @checked = "checked"}) Nam
+                @Html.RadioButton("gioitinh", "Nữ", new { @class = "form-control" }) Nữ
+            </td>
+        <tr>
+            <td>@Html.Label("Học lớp: ")</td>
+            <td>@Html.TextBox("hoclop", "", new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Điểm: ")</td>
+            <td>@Html.TextBox("diem", "", new { @class = "form-control" })</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+            <input type="submit" value="TÍNH" formaction="/QuanlyHocsinh/Nhap"/>
+            </td>
+        </tr>
+    </table>
+}
+

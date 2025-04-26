@@ -1,0 +1,48 @@
+﻿@model De1.Models.Hang
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ketqua</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 500px;
+            margin: 10px auto;
+            background-color: lightblue;
+        }
+
+        table, th, td {
+            text-align : center;
+            border: 1px solid black;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Mã hàng</th>
+            <th>Tên hàng</th>
+            <th>Thành tiền</th>
+        </tr> 
+        <tr>
+            <td>@Model.mahang</td>
+            <td>@Model.tenhang</td>
+            <td>
+                @{ 
+                    int soluong = int.Parse(Model.soluong);
+                    double dongia = int.Parse(Model.dongia);
+                    double thanhtien = ((soluong >= 100) ? (soluong * dongia * 0.9) : (soluong * dongia));
+                }
+                @thanhtien
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

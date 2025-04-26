@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>@ViewBag.Title</title>
+    <style>
+        body{
+            font-family: Calibri;
+            background: #c3c3c3;
+            padding: 5px 300px;
+        }
+        header div:first-child{
+            height: auto;
+            color: white;
+            background-color: #00a2e8;
+            margin: 2px 0px;
+            padding: 25px;
+        }
+        header div p{
+            text-align: center;
+            padding: 0px;
+            font-size: 30px;
+        }
+
+        header div:last-child {
+            height: auto;
+            background-color: #99d9ea;
+            margin: 0px;
+        }
+        .menu{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            margin: 0px;
+        }
+        .menu li{
+            list-style: none;
+            margin: 0px 30px;
+        }
+            .menu li a{
+                color: black;
+                text-decoration: none;
+            }
+            section{
+                background-color: white;
+                height: 50vh;
+            }
+        table {
+            border-collapse: collapse;
+            margin: 30px auto;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th {
+            text-align: center;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <p>Kiểm tra 1</p>
+        </div>
+        <div>
+            <ul class="menu">
+                <li>@Html.ActionLink("Hiển thị danh sách", "HienThi", "QuanlyNhanvien")</li>
+                <li>@Html.ActionLink("Nhập dữ liệu", "NhapDuLieu", "QuanlyNhanvien")</li>
+            </ul>
+        </div>
+    </header>
+
+    <section>
+        @RenderBody()
+    </section>
+</body>
+</html>

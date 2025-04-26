@@ -1,0 +1,66 @@
+﻿@model IEnumerable<De6.Models.Hocsinh>
+@{
+    ViewBag.Title = "Hienthi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table{
+        width: 700px;
+    }
+</style>
+<table>
+    <tr>
+        <th colspan="6">DANH SÁCH HỌC SINH NAM</th>
+    </tr>
+    <tr>
+        <th>Mã học sinh</th>
+        <th>Họ tên</th>
+        <th>Giới tính</th>
+        <th>Học lớp</th>
+        <th>Điểm</th>
+        <th>Kết quả</th>
+    </tr>
+    @foreach (De6.Models.Hocsinh h in Model)
+    {
+        if (h.gioitinh == "Nam")
+        {
+            <tr>
+                <td>@h.mahs </td>
+                <td>@h.hoten</td>
+                <td>@h.gioitinh</td>
+                <td>@h.hoclop</td>
+                <td>@h.diem</td>
+                <td>@h.ketqua</td>
+            </tr>
+        }
+    }
+</table>
+<table>
+    <tr>
+        <th colspan="6">DANH SÁCH HỌC SINH CÓ ĐIỂM > 5</th>
+    </tr>
+    <tr>
+        <th>Mã học sinh</th>
+        <th>Họ tên</th>
+        <th>Giới tính</th>
+        <th>Học lớp</th>
+        <th>Điểm</th>
+        <th>Kết quả</th>
+    </tr>
+    @foreach (De6.Models.Hocsinh h in Model)
+    {
+        if (h.diem > 5)
+        {
+            <tr>
+                <td>@h.mahs </td>
+                <td>@h.hoten</td>
+                <td>@h.gioitinh</td>
+                <td>@h.hoclop</td>
+                <td>@h.diem</td>
+                <td>@h.ketqua</td>
+            </tr>
+        }
+    }
+</table>
+

@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "NhapDuLieu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    table {
+        width: 500px;
+    }
+</style>
+@using (Html.BeginForm(FormMethod.Post))
+{
+    <table>
+        <tr>
+            <th colspan="2">NHẬP THÔNG TIN NHÂN VIÊN</th>
+        </tr>
+        <tr>
+            <td>@Html.Label("Mã nhân viên: ")</td>
+            <td>@Html.TextBox("manv", "", new {@class = "form-control"}) </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Họ tên: ")</td>
+            <td>@Html.TextBox("hoten", "", new { @class = "form-control" }) </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Địa chỉ: ")</td>
+            <td>
+                @Html.DropDownList("diachi", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Hà Nội", Value = "Hà Nội"},
+                    new SelectListItem {Text = "Hải Phòng", Value = "Hải Phòng"},
+                    new SelectListItem {Text = "Quảng Ninh", Value = "Quảng Ninh"}
+                }, new { @class = "form-control" }) 
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Số ngày làm: ")</td>
+            <td>@Html.TextBox("songaylam", "", new { @class = "form-control" }) </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Lương ngày: ")</td>
+            <td>@Html.TextBox("luongngay", "", new { @class = "form-control" }) </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="TÍNH" formaction="/QuanlyNhanvien/NhapDuLieu"/>
+            </td>
+        </tr>
+    </table>
+}

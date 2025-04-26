@@ -1,0 +1,52 @@
+﻿@model De2.Models.SanPham
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cau2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin: 10px auto;
+        }
+
+        table, td {
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 5px;
+        }
+        .left_table{
+            width: 40%;
+        }
+        .right_table{
+            width: 60%;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td class="left_table">Mã sản phẩm: </td>
+            <td class="right_table">@Model.masp</td>
+        </tr>
+        <tr>
+            <td class="left_table">Tên sản phẩm: </td>
+            <td class="right_table">@Model.tensp</td>
+        </tr>
+        <tr>
+            <td class="left_table">Thành tiền: </td>
+            <td class="right_table">@Model.thanhtien</td>
+        </tr>
+
+    </table>
+</body>
+</html>

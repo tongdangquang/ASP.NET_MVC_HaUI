@@ -1,0 +1,81 @@
+﻿@model De3.Models.NhanVien
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cau2</title>
+    <style>
+        table {
+            width: 400px;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        table, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>@Html.Label("Mã nhân viên: ")</td>
+                <td>
+                    @Html.TextBox("manv", "", new { @class = "from-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Họ tên: ")</td>
+                <td>
+                    @Html.TextBox("hoten", "", new { @class = "from-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Đơn vị: ")</td>
+                <td>
+                    @Html.DropDownList("donvi", new List<SelectListItem>
+                   {
+                       new SelectListItem {Text = "Phòng tổ chức", Value = "Phòng tổ chức"},
+                       new SelectListItem {Text = "Phòng kinh doanh", Value = "Phòng kinh doanh"},
+                       new SelectListItem {Text = "Phòng kỹ thuật", Value = "Phòng kỹ thuật"}
+                   }, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Lương ngày: ")</td>
+                <td>
+                    @Html.TextBox("luongngay", "", new { @class = "from-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Số ngày: ")</td>
+                <td>
+                    @Html.TextBox("songay", "", new { @class = "from-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Thu nhập: ")</td>
+                <td>
+                    @Html.TextBox("thu nhập", "", new { @class = "from-control", @readonly = "readonly"})
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="TÍNH" formaction="/Home/Ketqua"/>
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+</html>

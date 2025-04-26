@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cau2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin: 10px auto;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        table, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>@Html.Label("Mã giảng viên: ")</td>
+                <td>@Html.TextBox("magv", "", new { style = "width: 100px;" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Họ tên: ")</td>
+                <td>@Html.TextBox("hoten", "")</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("khoa: ")</td>
+                <td>
+                    @Html.DropDownList("hoten", new List<SelectListItem>
+                    {
+                        new SelectListItem {Text = "Cơ khí", Value = "Cơ khí"},
+                        new SelectListItem {Text = "Kinh tế", Value = "Kinh tế"},
+                        new SelectListItem {Text = "Công nghệ thông tin", Value = "Công nghệ thông tin"}
+                    })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Lương giờ: ")</td>
+                <td>@Html.TextBox("luonggio", "")</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Số giờ: ")</td>
+                <td>@Html.TextBox("sogio", "")</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Lương tháng: ")</td>
+                <td>@Html.TextBox("luongthang", "", new {@readonly = "readonly"})</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="TÍNH" formaction="/Home/Ketqua"/>
+                </td>
+            </tr>
+
+        </table>
+    }
+</body>
+</html>

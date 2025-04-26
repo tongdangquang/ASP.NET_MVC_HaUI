@@ -1,0 +1,93 @@
+﻿@model De2.Models.SanPham
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cau1</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin: 10px auto;
+        }
+
+        table, td {
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+@{
+    if (IsPost)
+    {
+        if (Model.thanhtien == 0)
+        {
+            ViewBag.msg = "Dữ liệu đầu vào không chính xác!";
+        }
+        else
+        {
+            ViewBag.msg = "";
+        }
+    }
+}
+<body>
+    <form action="/" method="post">
+        <table>
+            <tr>
+                <td>Mã sản phẩm: </td>
+                <td>
+                    <input type="text" name="masp" value="@Model.masp" style="width: 100px;" />
+                </td>
+            </tr>
+            <tr>
+                <td>Tên sản phẩm: </td>
+                <td>
+                    <input type="text" name="tensp" value="@Model.tensp" />
+                </td>
+            </tr>
+            <tr>
+                <td>Loại sản phẩm: </td>
+                <td>
+                    <select name="loaisp">
+                        <option @((Model.loaisp == "Nông sản") ? "selected" : "")>Nông sản</option>
+                        <option @((Model.loaisp == "Hải sản") ? "selected" : "")>Hải sản</option>
+                        <option @((Model.loaisp == "Đồ uống") ? "selected" : "")>Đồ uống</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Số lượng: </td>
+                <td>
+                    <input type="text" name="soluong" value="@((Model.soluong == 0) ? "" : Model.soluong.ToString())" />
+                </td>
+            </tr>
+            <tr>
+                <td>Đơn giá: </td>
+                <td>
+                    <input type="text" name="dongia" value="@((Model.dongia == 0) ? "" : Model.dongia.ToString())" />
+                </td>
+            </tr>
+            <tr>
+                <td>Thành tiền: </td>
+                <td>
+                    <input type="text" name="thanhtien" value="@((Model.thanhtien == 0) ? "" : Model.thanhtien.ToString())" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <input type="submit" value="TÍNH" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <p>@ViewBag.msg</p>
+</body>
+</html>

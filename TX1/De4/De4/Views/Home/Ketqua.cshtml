@@ -1,0 +1,46 @@
+﻿@model  De4.Models.GiangVien
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ketqua</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin: 10px auto;
+            background-color: aqua;
+            color: red;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Mã giảng viên</th>
+            <th>Họ tên</th>
+            <th>Lương tháng</th>
+        </tr>
+        <tr>
+            <td>@Model.magv</td>
+            <td>@Model.hoten</td>
+            <td>@Model.luongthang</td>
+        </tr>
+    </table>
+</body>
+</html>

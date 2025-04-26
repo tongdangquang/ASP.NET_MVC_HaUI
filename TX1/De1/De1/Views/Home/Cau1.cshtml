@@ -1,0 +1,88 @@
+﻿@model De1.Models.Hang
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+@{
+    string thanhtien = "";
+    if (IsPost)
+    {
+        try
+        {
+
+            int soluong = int.Parse(Model.soluong);
+            double dongia = int.Parse(Model.dongia);
+            thanhtien = ((soluong >= 100) ? (soluong * dongia * 0.9) : (soluong * dongia)).ToString();
+        }
+        catch
+        {
+            ViewBag.msg = "Vui lòng nhập đúng dữ liệu!";
+        }
+    }
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cau1</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin: 10px auto;
+        }
+
+        table, td {
+            border: 1px solid black;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>@Html.Label("Mã hàng: ")</td>
+                <td>@Html.TextBox("mahang", Model.mahang, new { @class = "form-control", style = "width: 150px;" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Tên hàng: ")</td>
+                <td>@Html.TextBox("tenhang", Model.tenhang, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Loại hàng: ")</td>
+                <td>
+                    @Html.DropDownList("loaihang", new List<SelectListItem>
+                   {
+                        new SelectListItem {Text = "quần áo", Value = "quanao"},
+                        new SelectListItem {Text = "điện tử", Value = "dientu"},
+                        new SelectListItem {Text = "gia dụng", Value = "giadung"}
+                   }, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Đơn giá: ")</td>
+                <td>@Html.TextBox("dongia", Model.dongia, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Số lượng: ")</td>
+                <td>@Html.TextBox("soluong", Model.soluong, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Thành tiền: ")</td>
+                <td>@Html.TextBox("thanhtien", @thanhtien, new { @class = "form-control", @readonly = true })</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="TÍNH" />
+                </td>
+            </tr>
+        </table>
+        <p>@ViewBag.msg</p>
+    }
+</body>
+</html>

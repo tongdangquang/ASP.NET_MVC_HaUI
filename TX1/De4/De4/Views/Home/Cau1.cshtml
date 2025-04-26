@@ -1,0 +1,101 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cau1</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin: 10px auto;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        table, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+@{
+    string magv = "", hoten = "", khoa = "";
+    double luonggio = 0, sogio = 0, luongthang = 0;
+    if (IsPost)
+    {
+        try
+        {
+            magv = Request["magv"];
+            hoten = Request["hoten"];
+            khoa = Request["khoa"];
+            luonggio = double.Parse(Request["luonggio"]);
+            sogio = double.Parse(Request["sogio"]);
+            luongthang = (sogio < 120) ? luonggio * sogio : luonggio * sogio * 1.1;
+        }
+        catch
+        {
+            ViewBag.msg = "Vui lòng nhập đúng dữ liệu trước khi tính!";
+        }
+    }
+}
+<body>
+    <form action="/" method="post">
+        <table>
+            <tr>
+                <td>Mã giảng viên: </td>
+                <td>
+                    <input type="text" name="magv" style="width: 100px;" value="@magv"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Họ tên: </td>
+                <td>
+                    <input type="text" name="hoten" value="@hoten"/>
+
+                </td>
+            </tr>
+            <tr>
+                <td>khoa: </td>
+                <td>
+                    <select name="khoa">
+                        <option @(khoa == "Cơ khí" ? "selected" : "")>Cơ khí</option>
+                        <option @(khoa == "Kinh tế" ? "selected" : "")>Kinh tế</option>
+                        <option @(khoa == "Công nghệ thông tin" ? "selected" : "")>Công nghệ thông tin</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Lương giờ: </td>
+                <td>
+                    <input type="text" name="luonggio" value="@(luonggio == 0 ? "": luonggio.ToString("N0"))"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Số giờ: </td>
+                <td>
+                    <input type="text" name="sogio" value="@(sogio == 0 ? "": sogio.ToString("N0"))" />
+                </td>
+            </tr>
+            <tr>
+                <td>Lương tháng: </td>
+                <td>
+                    <input type="text" name="luongthang" readonly="readonly" value="@(luongthang == 0 ? "": luongthang.ToString("N0"))"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="TÍNH" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <p>@ViewBag.msg</p>
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿@model De1.Models.Hang
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cau2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            margin: 10px auto;
+        }
+
+        table, td {
+            border: 1px solid black;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>@Html.Label("Mã hàng: ")</td>
+                <td>@Html.TextBox("mahang", "", new { @class = "form-control", style = "width: 150px;" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Tên hàng: ")</td>
+                <td>@Html.TextBox("tenhang", "", new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Loại hàng: ")</td>
+                <td>
+                    @Html.DropDownList("loaihang", new List<SelectListItem>
+                   {
+                        new SelectListItem {Text = "quần áo", Value = "quanao"},
+                        new SelectListItem {Text = "điện tử", Value = "dientu"},
+                        new SelectListItem {Text = "gia dụng", Value = "giadung"}
+                   }, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Đơn giá: ")</td>
+                <td>@Html.TextBox("dongia", "", new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Số lượng: ")</td>
+                <td>@Html.TextBox("soluong", "", new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Thành tiền: ")</td>
+                <td>@Html.TextBox("thanhtien", "", new { @class = "form-control", @readonly = true })</td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="TÍNH" formaction="/Home/Ketqua" />
+                </td>
+            </tr>
+        </table>
+    }
+</body>
+</html>

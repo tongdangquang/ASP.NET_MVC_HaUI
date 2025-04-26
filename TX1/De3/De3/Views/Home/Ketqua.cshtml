@@ -1,0 +1,55 @@
+﻿@model  De3.Models.NhanVien
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Ketqua</title>
+    <style>
+        table {
+            width: 400px;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        table, td {
+            border: 1px solid black;
+        }
+        .left_table{
+            background-color: lightblue;
+            font-weight: bold;
+            color: red;
+        }
+        .right_table{
+            background-color: aliceblue;
+            color: darkorchid;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+        <table>
+            <tr>
+                <td class="left_table">@Html.Label("Mã nhân viên: ")</td>
+                <td class="right_table">@Model.manv</td>
+            </tr>
+            <tr>
+                <td class="left_table">@Html.Label("Họ tên: ")</td>
+                <td class="right_table">@Model.hoten</td>
+            </tr>
+            <tr>
+                <td class="left_table">@Html.Label("Thu nhập: ")</td>
+                <td class="right_table">@Model.thunhap</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
