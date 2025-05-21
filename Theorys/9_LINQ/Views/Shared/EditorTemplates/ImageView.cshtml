@@ -1,0 +1,17 @@
+﻿@model string
+@{
+    var ImagePath = "~/Content/WineImages/" + Model;
+}
+
+<img id="output" class="img-thumbnail" alt="Ảnh" width="200" src="@Url.Content(ImagePath)" />
+<p>
+    <label for="ufile" style="cursor: pointer;">Chọn file ảnh</label>
+</p>
+<input name="ImageFile" id="ufile" type="file" style="display: none;" onchange="loadFile(event)" />
+
+<script>
+    var loadFile = function (event) {
+        var image = document.getElementById("output");
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>

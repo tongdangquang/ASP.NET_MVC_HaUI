@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+    table, td {
+        border: 1px solid black;
+    }
+</style>
+<h3>Student Registration Form</h3>
+@using (Html.BeginForm("Regis", "HTML_Helper", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.Label("Student Name")</td>
+            <td>@Html.TextBox("name", "", new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Gender")</td>
+            <td>
+                @Html.RadioButton("gender", "male", true) Male
+                @Html.RadioButton("gender", "female") Female
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Email")</td>
+            <td>@Html.TextBox("email", "", new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Address")</td>
+            <td>
+                @Html.DropDownList("address", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Hà Nội", Value = "Hà Nội"},
+                    new SelectListItem {Text = "Quảng Ninh", Value = "Quảng Ninh"},
+                    new SelectListItem {Text = "Thái Bình", Value = "Thái Bình"},
+                    new SelectListItem {Text = "Hải Phòng", Value = "Hải Phòng"}
+                }, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Subject")</td>
+            <td>
+                <input type="checkbox" name="subjects" value="Java Core" /> Java Core
+                <input type="checkbox" name="subjects" value="SQL Server" /> SQL Server
+                <input type="checkbox" name="subjects" value="PHP" /> PHP
+                @*@Html.CheckBox("subjects", new { value = "javacore" }) Java Core
+                    @Html.CheckBox("subjects", new { value = "sqlserver" }) SQl Server
+                    @Html.CheckBox("subjects", new { value = "php" }) PHP*@
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.Label("User name")</td>
+            <td>@Html.TextBox("username", "", new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Password")</td>
+            <td>@Html.Password("password", "", new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Comment")</td>
+            <td>@Html.TextArea("comment", "", new { @class = "form-control" })</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" name="regis" value="Regis" />
+                <input type="reset" name="cancel" value="Cancel" />
+            </td>
+        </tr>
+    </table>
+}
+

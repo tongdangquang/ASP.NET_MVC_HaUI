@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        body {
+            width: auto;
+        }
+
+        div {
+            border: 1px solid black;
+            width: auto;
+        }
+
+        p, input {
+            margin: 0px 3px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Đọc/Ghi File</h2>
+        <form action="" method="post">
+            <p>ID: </p>
+            <input type="text" name="id" />
+            <p>Name: </p>
+            <input type="text" name="name" />
+            <p>Marks: </p>
+            <input type="text" name="marks" />
+            <hr />
+            <input type="submit" value="Save" formaction="/read_write_file/Save" />
+            <input type="submit" value="Open" formaction="/read_write_file/Open" />
+        </form>
+        <br />
+
+        <p>@ViewBag.notify</p>
+        <p>@ViewBag.info</p>
+    </div>
+</body>
+</html>

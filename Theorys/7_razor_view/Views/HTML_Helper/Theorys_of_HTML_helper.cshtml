@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Theorys_of_HTML_helper";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<style>
+    h4 {
+        margin: 20px 0px 2px 0px;
+    }
+</style>
+<h3>Standard HTML Helper in ASP.NET MVC5</h3>
+@*Mỗi phương thức đều có 3 tham số lần lượt là: @Html.TextBox(Tên, giá trị, thuộc tính html bổ sung)*@
+<h4>1. Label example</h4>
+@Html.Label("firstname", "First Name")
+
+<h4>2. TextBox example</h4>
+@Html.TextBox("username", "", new { @class = "form-control", placeholder = "User name" })
+
+<h4>3. Password example</h4>
+@Html.Password("password", "", new { @class = "form-control" })
+
+<h4>4. Text Area example</h4>
+@Html.TextArea("introduce", "Introduce for yourself: ", 5, 40, new { @class = "form-control" })
+
+<h4>5. Radio Button example</h4>
+@Html.RadioButton("gender", "Male") Nam
+@Html.RadioButton("gender", "Female") Nữ
+
+<h4>6. Check Box example</h4>
+@Html.CheckBox("languages", true, "English") Anh
+@Html.CheckBox("languages", "Chinese") Trung Quốc
+@Html.CheckBox("languages", "Vietnamese") Việt Nam
+
+<h4>7. ListBox example</h4>
+@Html.ListBox("skills", new List<SelectListItem>
+{
+    new SelectListItem {Text = "ASP.NET", Value = "asp.net"},
+    new SelectListItem {Text = "Django", Value = "django"},
+    new SelectListItem {Text = "SQL Server", Value = "sqlserver"},
+    new SelectListItem {Text = "HTML/CSS", Value = "htmlcss"},
+    new SelectListItem {Text = "WPF", Value = "wpf"}
+}, new { @class = "form-control" })
+
+<h4>8. DropDownList example</h4>
+@Html.DropDownList("major", new List<SelectListItem>
+{
+    new SelectListItem {Text = "Major", Value = ""},
+    new SelectListItem {Text = "Information System", Value = "Information System"},
+    new SelectListItem {Text = "Information Technology", Value = "Information Technology"},
+    new SelectListItem {Text = "Software Engineering", Value = "Software Engineering"},
+    new SelectListItem {Text = "Computer Science", Value = "Computer Science"}
+}, new { @class = "form-control" })
+
+<h4>9. Hidden example</h4>
+@Html.Hidden("hidden_info", "hello world")
+
+<h4>10. Editor example</h4>
+@Html.Editor("dob", "", new { @class = "form-control", placeholder = "Date of Birth" })
+
+<h4>11. ActionLink example</h4>
+@Html.ActionLink("Let my FaceBook", "Index", "Home")
+
+@*Display chỉ nhận giá trị từ trong controller (Model hoặc ViewBag*), không nhận gias trị trực tiếp.
+    Vì vậy "Nguyễn Văn A" sẽ không hiển thị trên trình duyệt*@
+<h4>12. Display example</h4>
+@Html.Display("username", "Nguyễn Văn A")
+
+<h4>13. BeginForm example</h4>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    // Code here...
+}
+

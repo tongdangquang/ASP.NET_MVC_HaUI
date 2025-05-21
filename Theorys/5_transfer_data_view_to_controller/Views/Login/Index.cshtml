@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div style="border: 1px solid black; width: fit-content; padding: 5px; margin: 5px auto; text-align: center;">
+        <h3>LOG IN</h3>
+        <form action="/Login/Check" method="post">
+            <label>Username: </label>
+            <br />
+            <input type="text" name="username" />
+            <br />
+            <label>Password: </label>
+            <br />
+            <input type="password" name="password" />
+            <br />
+            <input type="submit" value="Log in" style="margin: 4px 0px;" />
+            <br />
+            <p style="color: red">@ViewBag.message</p>
+        </form>
+    </div>
+</body>
+</html>

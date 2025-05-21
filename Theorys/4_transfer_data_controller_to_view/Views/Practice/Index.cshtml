@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        .div1 {
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        .div2 {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 700px;
+            margin: 0px auto;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <div class="div2">
+            <a href="~/Practice/Display1">Hiển thị 5 máy tính</a><br />
+            <a href="~/Practice/Display2">Hiển thị 2 máy tính có giá thấp nhất</a><br />
+            <a href="~/Practice/Display3">Hiển thị 5 máy tính sắp xếp giá từ cao đến thấp</a><br />
+            <a href="~/Practice/Display4">Hiển thị các máy tính thuộc hãng Asus</a><br />
+        </div>
+        <h2>DANH SÁCH MÁY TÍNH</h2>
+        <table>
+            <tr>
+                <th>Mã máy</th>
+                <th>Dòng máy</th>
+                <th>Giá bán</th>
+                <th>Ngày sản xuất</th>
+                <th>Hãng sản xuất</th>
+            </tr>
+            @{
+                foreach (var mt in Model)
+                {
+                    <tr>
+                        <td>@mt.mamay</td>
+                        <td>@mt.dongmay</td>
+                        <td>@mt.giaban.ToString("N0")</td>
+                        <td>@mt.ngaysx.ToString("dd/MM/yyyy")</td>
+                        <td>@mt.hangxs</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</body>
+</html>

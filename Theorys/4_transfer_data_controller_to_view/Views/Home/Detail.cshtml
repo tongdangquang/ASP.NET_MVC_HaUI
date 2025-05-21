@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detail</title>
+</head>
+<body>
+    <div>
+        <h2>Student Detail</h2>
+        <div>
+            <ul>
+                <li>ID: @ViewBag.id</li>
+                <li>Name: @ViewBag.name</li>
+                <li>Marks: @ViewBag.marks</li>
+                <li>Major: @ViewData["major"]</li>
+                <li>School: @ViewData["school"]</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

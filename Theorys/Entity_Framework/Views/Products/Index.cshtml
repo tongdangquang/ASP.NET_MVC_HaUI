@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Entity_Framework.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>TOP 12 SẢN PHẨM CÓ GIÁ CAO NHẤT</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-4 col-lg-3 text-center border">
+            @Html.DisplayFor(modelItem => item.Catalogy.CatalogyName)
+            <br />
+
+            @Html.DisplayFor(modelItem => item.ProductName)
+            <br />
+
+            @Html.DisplayFor(modelItem => item.PurchasePrice) |
+
+            @Html.DisplayFor(modelItem => item.Price) |
+
+            @Html.DisplayFor(modelItem => item.Quantity) |
+
+            @Html.DisplayFor(modelItem => item.Vintage)
+
+            <br />
+            @{
+                string ImagePath = "~/Content/WineImages/" + item.Image;
+            }
+            <img src="@Url.Content(ImagePath)" width="100" class="img-thumbnail" />
+            <br />
+
+            @Html.DisplayFor(modelItem => item.Image)
+            <br />
+
+            @Html.DisplayFor(modelItem => item.Region)
+            <br />
+
+            @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+        </div>
+    }
+</div>
+

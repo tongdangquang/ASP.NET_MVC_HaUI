@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Upload File</title>
+</head>
+<body>
+    <div>
+        <h2>Upload File</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <br /><br />
+            <input type="submit" value="Upload" />
+        </form>
+        <p>@ViewBag.Message</p>
+    </div>
+</body>
+</html>

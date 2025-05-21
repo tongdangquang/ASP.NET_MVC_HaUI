@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    <style>
+        h2 {
+            background-color: red;
+            padding: 20px 10px;
+            margin: 0px;
+        }
+            h2 a {
+                text-decoration: none;
+                color: white;
+            }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            list-style: none;
+            margin: 3px 0px;
+            padding: 0px;
+            background-color: green;
+        }
+
+            .menu li {
+                padding: 10px 0px;
+                margin: 0px;
+            }
+
+            .menu a{
+                color: white;
+                text-decoration: none;
+                margin: 0px 15px;
+            }
+
+                .menu a:hover {
+                    color: red;
+                }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>@Html.ActionLink("Trường Đại học Công Nghiệp Hà Nội", "Index", "Theory")</h2>
+    </header>
+
+    <nav>
+        <ul class="menu">
+            <li>@Html.ActionLink("Công nghệ thông tin", "CNTT", "Theory")</li>
+            <li>@Html.ActionLink("Hệ thống thông tin", "HTTT", "Theory")</li>
+            <li>@Html.ActionLink("Khoa học máy tính", "KHMT", "Theory")</li>
+            <li>@Html.ActionLink("Kĩ thuật phần mềm", "KTPM", "Theory")</li>
+            <li>@Html.ActionLink("Other Pages", "Index", "Home")</li>
+        </ul>
+    </nav>
+
+    <section>
+        @RenderBody()
+    </section>
+
+    <footer>
+    </footer>
+</body>
+</html>

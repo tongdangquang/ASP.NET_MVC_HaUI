@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Razor2";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h3>Thao tác với danh sách hoặc mảng</h3>
+@{
+    List<string> std_lst = new List<string> { "Nguyễn Văn A", "Nguyễn Văn B", "Nguyễn Văn C", "Nguyễn Văn D" };
+
+
+    <p>Danh sách sinh viên: </p>
+    foreach (string i in std_lst)
+    {
+        <p>- @i</p>
+    }
+    <p>Số lượng sinh viên trong danh sách: @std_lst.Count sinh viên</p>
+    <p>Sinh viên đầu tiên trong danh sách: @std_lst[0]</p>
+    <p>Sinh viên cuối cùng trong danh sách: @std_lst[std_lst.Count - 1]</p>
+}
+<hr />
+<hr />
+<h4>Thao tác với dictionary</h4>
+@{
+    Dictionary<string, double> score_slt = new Dictionary<string, double>();
+    score_slt.Add("Toán", 10);
+    score_slt.Add("Văn", 5);
+    score_slt.Add("Ngoại ngữ", 9);
+    score_slt.Add("Lập trình", 7);
+
+    <p>Danh sách điểm thi: </p>
+    foreach (var i in score_slt)
+    {
+        <p>@i.Key: @i.Value</p>
+    }
+
+    <p>Danh sách điểm thi sắp xếp theo thứ tự tăng dần của điểm thi: </p>
+    foreach (var i in score_slt.OrderBy(x => x.Value))
+    {
+        <p>@i.Key: @i.Value</p>
+    }
+    var hightest_score = score_slt.OrderByDescending(x => x.Value).FirstOrDefault();
+    <p>Môn học có điểm cao nhất: @hightest_score.Key - @hightest_score.Value</p>
+}
+
+

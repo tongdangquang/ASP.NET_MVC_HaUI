@@ -1,0 +1,6 @@
+﻿@model string
+@{
+    var ImagePath = "~/Content/WineImages/" + Model;
+}
+
+<img class="img-thumbnail" alt="Ảnh" width="100" src="@Url.Content(@ImagePath)" />
