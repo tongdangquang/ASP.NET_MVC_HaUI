@@ -1,1 +1,0 @@
-Tất cả các project trong repo này không thể chạy được vì đã bị xóa đi những thư mục tài nguyên như: packages, bin, Content, Properties, Scripts,… để giảm kích thước của project. Nhưng những file quan trong như: .cs, .cshtml,… vẫn được giữ nguyên. Vì vậy chỉ có đọc code của các file đó hoặc tự tạo project mới và copy code vào để chạy chương trình.
